@@ -18,6 +18,7 @@ export const DashboardContainer = styled(Box)`
     background: white;
     display: flex;
     align-items: flex-start;
+    gap: 10px;
   }
   .header-amount {
     font-family: "Circular Std", sans-serif;

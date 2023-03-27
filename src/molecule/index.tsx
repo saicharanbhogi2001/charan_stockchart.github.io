@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react";
 import { DashboardContainer } from "./style";
 import FinancialChartMultipleData from "../atom/chart";
-import StocksHistory from "../atom/chart/StocksHistory";
-import { cur, prev } from "../atom/chart/StocksHistory";
+import StocksHistory, { cur, prev } from "../atom/chart/StocksHistory";
 function ChartDashboard() {
   const [activeIndex, setActiveIndex] = useState(1);
   const [data, setData] = useState([{}]);
@@ -21,12 +20,15 @@ function ChartDashboard() {
   return (
     <DashboardContainer>
       <div className="header">
-        <span className="header-amounthelper">₹</span>
         <span className="header-amount">{parseFloat(cur).toFixed(2)}</span>
+        <span className="header-amounthelper">USD</span>
       </div>
       <div className="header-helper">
-        <p className="header-helpertext">
-          {cur - prev > 0 || "+"} {(cur - prev).toFixed(3)}
+        <p
+          className="header-helpertext"
+          style={{ color: `${cur - prev < 0 && "red"}` }}
+        >
+          {cur - prev > 0 && "+"} {(cur - prev).toFixed(3)}
           {" (" + (((cur - prev) / cur) * 100).toFixed(2) + "%)"}
         </p>
       </div>

@@ -12,14 +12,14 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 IgrFinancialChartModule.register();
 
-const FinancialChartMultipleData = () => {
+function FinancialChartMultipleData() {
   const [data, setData] = useState([{}]);
   const [dataCopy, setDataCopy] = useState([{}]);
-  const [active, setActive] = useState(7);
+  const [active, setActive] = useState(2);
   useEffect(() => {
     const fetchData = async () => {
       const stocks = await StocksHistory.getStockData();
-      setData(stocks);
+      setData(stocks.slice(-69));
       setDataCopy(stocks);
     };
     fetchData();
@@ -54,7 +54,7 @@ const FinancialChartMultipleData = () => {
                   setActive(1);
                 }}
               >
-                1D
+                1d
               </button>
               <button
                 className={`${active === 2 ? "active-btn" : "button-day"}`}
@@ -63,7 +63,7 @@ const FinancialChartMultipleData = () => {
                   setActive(2);
                 }}
               >
-                3D
+                3d
               </button>
               <button
                 className={`${active === 3 ? "active-btn" : "button-day"}`}
@@ -72,43 +72,43 @@ const FinancialChartMultipleData = () => {
                   setActive(3);
                 }}
               >
-                1W
+                1w
               </button>
               <button
                 className={`${active === 4 ? "active-btn" : "button-day"}`}
                 onClick={() => {
-                  getRequireddata(744);
+                  getRequireddata(200);
                   setActive(4);
                 }}
               >
-                1M
+                1m
               </button>
               <button
                 className={`${active === 5 ? "active-btn" : "button-day"}`}
                 onClick={() => {
-                  getRequireddata(1000);
+                  getRequireddata(300);
                   setActive(5);
                 }}
               >
-                6M
+                6m
               </button>
               <button
                 className={`${active === 6 ? "active-btn" : "button-day"}`}
                 onClick={() => {
-                  getRequireddata(2000);
+                  getRequireddata(400);
                   setActive(6);
                 }}
               >
-                1Y
+                1y
               </button>
               <button
                 className={`${active === 7 ? "active-btn" : "button-day "}`}
                 onClick={() => {
-                  getRequireddata(3000);
+                  getRequireddata(500);
                   setActive(7);
                 }}
               >
-                MAX
+                max
               </button>
             </div>
           </div>
@@ -118,7 +118,7 @@ const FinancialChartMultipleData = () => {
                 width="100%"
                 height="100%"
                 chartType="Line"
-                thickness={1}
+                thickness={2}
                 dataSource={data}
                 volumeType="column"
                 volumeOutlines="#E2E4E7"
@@ -137,7 +137,7 @@ const FinancialChartMultipleData = () => {
                 crosshairsAnnotationYAxisTextColor="#ffff"
                 // isHorizontalZoomEnabled="false"
                 // isVerticalZoomEnabled="false"
-                brushes="rgba(75, 64, 238, 1)"
+                brushes="#4b40ee"
               />
             </div>
           </FullScreen>
@@ -145,6 +145,8 @@ const FinancialChartMultipleData = () => {
       </div>
     </GraphContainer>
   );
-};
+}
 
 export default FinancialChartMultipleData;
+
+// {["linear-gradient(to bottom, blue 10%, white 100%) "]}

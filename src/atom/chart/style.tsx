@@ -26,8 +26,8 @@ export const GraphContainer = styled(Box)`
     width: 120px;
     display: flex;
     align-items: center;
-    gap: 5px;
-    justify-content: space-around;
+    gap: 6px;
+    justify-content: flex-start;
   }
   .contents {
     width: 100%;
@@ -37,20 +37,27 @@ export const GraphContainer = styled(Box)`
   }
   .screen {
     display: flex;
-    width: 35%;
-    gap: 10px;
+    justify-content: flex-start;
+    width: 50%;
+    gap: 20px;
   }
   .rangeSelector {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 60%;
   }
   .chart {
     height: 100%;
-    width: 100%;
+    width: 103%;
     margin-left: -19px;
+    /* background: linear-gradient(
+      180deg,
+      #e8e7ff 0%,
+      rgba(255, 255, 255, 0) 100%
+    ); */
   }
   .fullscreen-enabled {
+    width: 100%;
     background: #ffff;
   }
 
@@ -73,7 +80,21 @@ export const GraphContainer = styled(Box)`
     width: 50px;
     border: none;
     background-color: #ffff;
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
   }
+  /* canvas div {
+    background: linear-gradient(
+      180deg,
+      #e8e7ff 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  } */
+  /* .financialChartPrice > div > :nth-child(3) > div {
+    background: linear-gradient(
+      180deg,
+      #e8e7ff 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  } */
 `;
